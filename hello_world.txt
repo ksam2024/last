@@ -1,2 +1,30 @@
-Hello World
-Hey world
+# https://programiz.pro/ide/python/CVB50I87P9
+
+LAST_CHAR_CODE = 90
+CHAR_RANGE = 26
+FIRST_CHAR_CODE = 65
+
+
+
+def ceaser_shift(message, shift):
+    encoded_message = ""
+    result = ""
+
+    for char in message.upper():
+        if char.isalpha():
+            char_code = ord(char)
+            new_char_code = char_code + shift
+            if new_char_code > LAST_CHAR_CODE:
+                new_char_code -= CHAR_RANGE
+            if new_char_code < FIRST_CHAR_CODE:
+                new_char_code += CHAR_RANGE
+            new_char = chr(new_char_code)
+            result += new_char
+        else: 
+            result += char
+    print(result)
+
+
+user_message = input("Message to Encrypt: ")
+user_shift_key = int(input("Shift Key (interger: "))
+ceaser_shift(user_message, user_shift_key)
